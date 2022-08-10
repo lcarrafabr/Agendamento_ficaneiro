@@ -29,9 +29,11 @@ public class AgendamentoDeTransferenciaService {
 	
 	
 	
-	public ResponseEntity<AgendamentoDeTransferencia> cadastrarAgendamentoTransferencia(AgendamentoDeTransferencia agendamentoTransf, HttpServletResponse response) {
+	public ResponseEntity<?> cadastrarAgendamentoTransferencia(AgendamentoDeTransferencia agendamentoTransf, HttpServletResponse response) {
 		
 		ResponseEntity<AgendamentoDeTransferencia> httpStatus = new ResponseEntity<AgendamentoDeTransferencia>(HttpStatus.METHOD_NOT_ALLOWED);
+		
+		ResponseEntity<String> httpStatus2 = ResponseEntity.notFound().build();
 		
 		long qtdDias = calculaDataAtualXDataTransferencia(agendamentoTransf);
 		TipoTransacaoEnum tipoTransacao = getTipoTransacao(agendamentoTransf.getValor());
@@ -39,7 +41,7 @@ public class AgendamentoDeTransferenciaService {
 		BigDecimal valorTaxa = calculaTaxa(tipoTransacao.toString(), qtdDias, agendamentoTransf.getValor(), agendamentoTransf);
 		
 		if(valorTaxa == null) {
-			System.out.println("Não existe Taxa aplicável");
+			 return httpStatus2 = ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não existe taxa aplicável");
 		} else {
 			
 			
