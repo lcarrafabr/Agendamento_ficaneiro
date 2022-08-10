@@ -104,7 +104,7 @@ public class AgendamentoDeTransferenciaService {
 			if(qtdDias == 0) {
 				percentual = BigDecimal.valueOf(0.03);
 				valorPercentualTaxa = valor.multiply(percentual).add(new BigDecimal("3"));
-				agend.setPercentualTaxa(valorPercentualTaxa.doubleValue());
+				agend.setPercentualTaxa(percentual.doubleValue() * 100);
 			} 
 			break;
 			
@@ -122,26 +122,26 @@ public class AgendamentoDeTransferenciaService {
 				if(qtdDias > 10) {
 					percentual = BigDecimal.valueOf(0.082);
 					valorPercentualTaxa = valor.multiply(percentual);
-					agend.setPercentualTaxa(valorPercentualTaxa.doubleValue());
+					agend.setPercentualTaxa(percentual.doubleValue() * 100);
 				}
 				
 				
 				if(qtdDias > 20) {
 					percentual = BigDecimal.valueOf(0.069);
 					valorPercentualTaxa = valor.multiply(percentual);
-					agend.setPercentualTaxa(valorPercentualTaxa.doubleValue());
+					agend.setPercentualTaxa(percentual.doubleValue() * 100);
 				}
 				
 				if(qtdDias > 30) {
 					percentual = BigDecimal.valueOf(0.047);
 					valorPercentualTaxa = valor.multiply(percentual);
-					agend.setPercentualTaxa(valorPercentualTaxa.doubleValue());
+					agend.setPercentualTaxa(percentual.doubleValue() * 100);
 				}
 				
 				if(qtdDias > 40) {
 					percentual = BigDecimal.valueOf(0.017);
 					valorPercentualTaxa = valor.multiply(percentual);
-					agend.setPercentualTaxa(valorPercentualTaxa.doubleValue());
+					agend.setPercentualTaxa(percentual.doubleValue() * 100);
 				}
 			
 			break;
