@@ -1,0 +1,6 @@
+{
+    "contaOrigem": "XXXXXX2",
+    "contaDestino": "XXXXXX1",
+    "valor": 200.00,
+    "dataTransferencia": "2022-08-10"
+}
