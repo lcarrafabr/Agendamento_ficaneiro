@@ -38,11 +38,19 @@ public class AgendamentoDeTransferenciaService {
 		long qtdDias = calculaDataAtualXDataTransferencia(agendamentoTransf);
 		TipoTransacaoEnum tipoTransacao = getTipoTransacao(agendamentoTransf.getValor());
 		
+		System.out.println(qtdDias);
+		
 		BigDecimal valorTaxa = calculaTaxa(tipoTransacao.toString(), qtdDias, agendamentoTransf.getValor(), agendamentoTransf);
+		
+		if (qtdDias < 0L) { 
+			
+			return httpStatus2 = ResponseEntity.status(HttpStatus.BAD_REQUEST).body("A data de agendamento não pode ser anterior a data de hoje.");
+			
+		}
 		
 		if(valorTaxa == null) {
 			 return httpStatus2 = ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Não existe taxa aplicável");
-		} else {
+		} else{
 			
 			
 			agendamentoTransf.setTipoTransacao(tipoTransacao);
