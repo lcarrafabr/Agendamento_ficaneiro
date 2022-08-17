@@ -21,6 +21,13 @@ export class AgendamentoCadastroComponent implements OnInit {
 
   }
 
+
+  salvar(form: FormControl) {
+
+    console.log(form);
+    this.cadastrarCategoria(form);
+  }
+
   cadastrarCategoria(form: FormControl) {
 
     this.agendamentoService.cadastrarAgendamento(this.agendamento)
@@ -30,6 +37,15 @@ export class AgendamentoCadastroComponent implements OnInit {
       this.agendamento = new AgendamentoTransferencia;
     });
     //.catch(erro => this.errorHandler.handle(erro));
+  }
+
+  novo(form: NgForm) {
+
+    form.reset();
+
+    setTimeout(function() {
+      this.pessoa = new AgendamentoTransferencia;
+    }.bind(this), 1);
   }
 
 

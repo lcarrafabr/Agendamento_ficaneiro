@@ -10,6 +10,7 @@ import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
 import {InputNumberModule} from 'primeng/inputnumber';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -20,6 +21,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     CardModule,
     TableModule,
     ButtonModule,

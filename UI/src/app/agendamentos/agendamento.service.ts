@@ -24,7 +24,9 @@ export class AgendamentoService {
 
 cadastrarAgendamento(agendamento: AgendamentoTransferencia): Promise<AgendamentoTransferencia> {
 
-  return this.http.post<AgendamentoTransferencia>(`${this.agendamentoURL}`, agendamento).toPromise();
+  const headers = new HttpHeaders().append('Content-Type', 'application/json');
+
+  return this.http.post<AgendamentoTransferencia>(`${this.agendamentoURL}`, agendamento, { headers }).toPromise();
 }
 
 }

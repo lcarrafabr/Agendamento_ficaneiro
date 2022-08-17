@@ -2,16 +2,16 @@
   <div>
     <p-card>
 
-      <form autocomplete="off">
+      <form autocomplete="off" #f="ngForm" (ngSubmit)="salvar(f)">
 
         <div class="p-col-12 p-fluid">
           <label>Número da conta de origem</label>
           <input type="text" autocomplete="off" pInputText class="p-inputtext-sm" placeholder="Número da conta de origem" name="contaOrigem" ngModel
-          required minlength="5">
+          [(ngModel)]="agendamento.contaOrigem" required minlength="5">
 
           <label>Número da conta de destino</label>
           <input type="text" autocomplete="off" pInputText class="p-inputtext-sm" placeholder="Número da conta de destino" name="contaDestino" ngModel
-          required minlength="5">
+          [(ngModel)]="agendamento.contaDestino" required minlength="5">
 
 
           <div class="p-col-12">
@@ -20,6 +20,7 @@
               <p-calendar
               name="dataVencimento"
               ngModel
+              [(ngModel)]="agendamento.dataTransferencia"
               dateFormat="dd/mm/yy"
               [readonlyInput]="true"
               [showIcon]="true"></p-calendar>
@@ -30,7 +31,7 @@
             <label>Valor</label>
             <!--<input type="text" pInputText class="p-inputtext-sm" placeholder="0,00">-->
             <p-inputNumber name="valor" mode="decimal" inputId="minmaxfraction" [minFractionDigits]="2" [maxFractionDigits]="5" placeholder="0,00" ngModel
-           ></p-inputNumber>
+            [(ngModel)]="agendamento.valor"></p-inputNumber>
           </div>
 
         </div>
@@ -40,6 +41,10 @@
         <div class="p-col-12">
           <button pButton label="Agendar transferência" icon="pi pi-plus-circle" class="p-button-raised p-button-primary"
                   pTooltip="Agendar transferência" tooltipPosition="top"></button>
+
+
+          <button pButton label="Novo" icon="pi pi-plus-circle" class="p-button-raised p-button-secondary p-mb-1 p-mr-1"
+                  pTooltip="Novo agendamento" tooltipPosition="top" (click)="novo(f)"></button>
 
         </div>
 
