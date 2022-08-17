@@ -1,1 +1,49 @@
-<p>agendamento-cadastro works!</p>
+<div class="">
+  <div>
+    <p-card>
+
+      <form autocomplete="off">
+
+        <div class="p-col-12 p-fluid">
+          <label>Número da conta de origem</label>
+          <input type="text" autocomplete="off" pInputText class="p-inputtext-sm" placeholder="Número da conta de origem" name="contaOrigem" ngModel
+          required minlength="5">
+
+          <label>Número da conta de destino</label>
+          <input type="text" autocomplete="off" pInputText class="p-inputtext-sm" placeholder="Número da conta de destino" name="contaDestino" ngModel
+          required minlength="5">
+
+
+          <div class="p-col-12">
+            <div class="p-col-6 p-fluid">
+              <label>Data vencimento</label>
+              <p-calendar
+              name="dataVencimento"
+              ngModel
+              dateFormat="dd/mm/yy"
+              [readonlyInput]="true"
+              [showIcon]="true"></p-calendar>
+            </div>
+          </div>
+
+          <div class="p-mb-1 p-mr-1 p-fluid">
+            <label>Valor</label>
+            <!--<input type="text" pInputText class="p-inputtext-sm" placeholder="0,00">-->
+            <p-inputNumber name="valor" mode="decimal" inputId="minmaxfraction" [minFractionDigits]="2" [maxFractionDigits]="5" placeholder="0,00" ngModel
+           ></p-inputNumber>
+          </div>
+
+        </div>
+
+        <div style="color: #2a323d;">---------------------</div>
+
+        <div class="p-col-12">
+          <button pButton label="Agendar transferência" icon="pi pi-plus-circle" class="p-button-raised p-button-primary"
+                  pTooltip="Agendar transferência" tooltipPosition="top"></button>
+
+        </div>
+
+      </form>
+    </p-card>
+  </div>
+</div>

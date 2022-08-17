@@ -1,3 +1,4 @@
+import { AgendamentoService } from './../agendamento.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgendamentoPesquisaComponent implements OnInit {
 
-  constructor() { }
+  agendamentos = [];
+  display: boolean;
+
+  constructor(
+    private agendamentoService: AgendamentoService
+  ) { }
 
   ngOnInit(): void {
+    this.listarTodosAgendamentos();
+
+    //this.showModalDialog();
   }
+
+  listarTodosAgendamentos() {
+
+    this.agendamentoService.listarTodos()
+    .then(response => {
+      this.agendamentos = response;
+      console.log(response);
+    });
+  }
+
+  showModalDialog() {
+    this.display = true;
+}
 
 }
