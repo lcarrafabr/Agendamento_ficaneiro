@@ -18,7 +18,7 @@ import com.carrafasoft.agendamentofincapi.repository.AgendamentoDeTransferenciaR
 import com.carrafasoft.agendamentofincapi.service.AgendamentoDeTransferenciaService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/agendamentos")
 public class AgendamentoDeTransferenciaResource {
 	
 	@Autowired
